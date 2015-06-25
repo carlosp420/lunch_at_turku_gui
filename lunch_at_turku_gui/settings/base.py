@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import json
 import os
+
+from django.core.exceptions import ImproperlyConfigured
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -100,3 +104,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+SECRETS_FILE = os.path.join(BASE_DIR, '..', 'config.json')
+
+if os.path.isfile(SECRETS_FILE):
+    with open(SECRETS_FILE) as f:
+        secrets = json.loads(f.read())
+
+        SECRET_KEY = secrets["SECRET_KEY"]
+        SCRAPINGHUB_KEY = secrets["SCRAPINGHUB_KEY"]
