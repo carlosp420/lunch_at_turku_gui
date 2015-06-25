@@ -1,3 +1,3 @@
 from .base import *
 
-ALLOWED_HOSTS = ['lunch.herokkuapp.com']
+ALLOWED_HOSTS = ['lunchturku.herokkuapp.com']
