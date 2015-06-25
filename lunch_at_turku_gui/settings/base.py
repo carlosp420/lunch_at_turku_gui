@@ -114,3 +114,5 @@ if os.path.isfile(SECRETS_FILE):
 
         SECRET_KEY = secrets["SECRET_KEY"]
         SCRAPINGHUB_KEY = secrets["SCRAPINGHUB_KEY"]
+else:
+    SCRAPINGHUB_KEY = ''
