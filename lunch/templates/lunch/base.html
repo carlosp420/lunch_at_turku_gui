@@ -12,7 +12,7 @@
 
       <hr>
       <p>
-        This data is scraped from the restaurant websites daily at 10:30am, Turku time.
+        This data is scraped from the restaurant websites daily at 10:00am, Turku time.
       </p>
 
       <table class="table table-striped table-bordered">
@@ -29,7 +29,7 @@
             <ul>
               {% for dish in restaurant.dishes %}
                 <li>
-                  {{ dish }}
+                  {{ dish|safe }}
                 </li>
               {% endfor %}
             </ul>
