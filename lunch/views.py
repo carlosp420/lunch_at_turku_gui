@@ -17,6 +17,7 @@ def index(request):
     res = requests.get(url, auth=(APIKEY, ''))
     data = []
     for i in res.text.splitlines():
+        print(">>>i", i)
         i = json.loads(i)
         if i['day'] == today_long_date and i not in data:
             data.append(i)
